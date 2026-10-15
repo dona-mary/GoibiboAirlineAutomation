@@ -17,24 +17,48 @@ A Selenium-based automation framework for airline search and booking flows (adap
 
 ```
 .
-|-- pom.xml
-|-- testng.xml
-|-- src
-|   |-- main
-|   |   |-- java/com/simplilearn/seleniumdemo
-|   |   |   |-- factory/DriverFactory.java
-|   |   |   |-- listeners/TestListener.java
-|   |   |   |-- pages/
-|   |   |   `-- utils/
-|   |   `-- resources/config/config.properties
-|   `-- test
-|       |-- java/com/simplilearn/seleniumdemo/testcases/
-|       `-- resources
-|           |-- autoit/UploadFile.exe
-|           `-- data/sample.pdf
-|-- target/extent
-|-- target/screenshots
-`-- test-output
+airline-booking-automation/
+├── pom.xml
+├── testng.xml
+├── Jenkinsfile
+├── README.md
+│
+├── src/
+│   ├── main/
+│   │   ├── java/com/airline/
+│   │   │   ├── pages/
+│   │   │   │   ├── HomePage.java
+│   │   │   │   ├── FlightResultsPage.java
+│   │   │   │   ├── PassengerPage.java
+│   │   │   │   ├── PaymentPage.java
+│   │   │   │   └── ConfirmationPage.java
+│   │   │   ├── core/
+│   │   │   │   ├── DriverFactory.java
+│   │   │   │   └── BasePage.java
+│   │   │   ├── utils/
+│   │   │   │   ├── ConfigReader.java
+│   │   │   │   ├── WaitUtils.java
+│   │   │   │   └── ScreenshotUtils.java
+│   │   │   └── models/
+│   │   │       └── FlightSearchData.java
+│   │   └── resources/
+│   │       ├── config.properties
+│   │       └── logback.xml
+│   │
+│   └── test/
+│       ├── java/com/airline/tests/
+│       │   ├── BaseTest.java
+│       │   ├── FlightSearchTest.java
+│       │   ├── FlightSelectionTest.java
+│       │   ├── PassengerDetailsTest.java
+│       │   ├── PaymentTest.java
+│       │   ├── BookingConfirmationTest.java
+│       │   └── backend/
+│       └── resources/
+│           └── testdata/
+│               └── flight-search.json
+│
+
 ```
 
 ## Framework Overview
@@ -70,7 +94,7 @@ Default values are stored in:
 Current defaults:
 
 ```
-baseUrl=https://opensource-demo.orangehrmlive.com/
+baseUrl=https://www.goibibo.com/
 username=Admin
 password=admin123
 browser=chrome
@@ -98,7 +122,7 @@ The suite file also passes browser and headless parameters:
 
 ## Prerequisites
 
-- JDK 21
+- JDK 17
 - Maven
 - Chrome, Edge, or Firefox
 - Windows, if running the AutoIT upload path
